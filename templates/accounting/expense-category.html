@@ -1,0 +1,40 @@
+{% extends 'accounting/base.html' %}
+{% block title %}
+<title>Expense Category</title>
+{% endblock title %}
+{% block subheader %}
+<!--begin::Subheader-->
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div
+        class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <!--begin::Info-->
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <!--begin::Page Title-->
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Expense Category</h5>
+            <!--end::Page Title-->
+        </div>
+        <!--end::Info-->
+        <a href="{% url 'add-expense-category' %}" class="btn btn-primary">Add Expense Category</a>
+    </div>
+</div>
+<!--end::Subheader-->
+{% endblock subheader %}
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <!--begin: Datatable-->
+        <div class="table-responsive">
+            <table class="table table-hover table-expense-category">
+                <thead class="thead-light">
+                    <th></th>
+                    <th>Expense Category Name</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!--end: Datatable-->
+    </div>
+</div>
+{% endblock content %}

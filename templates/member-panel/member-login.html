@@ -1,0 +1,39 @@
+{% extends 'member-panel/member-login-base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}
+Login
+{% endblock title %}
+{% block content %}
+<!--begin::Login Sign in form-->
+<div class="login-signin">
+    <div class="mb-20">
+        <h3 class="opacity-40 font-weight-normal">Member Sign In</h3>
+        <p class="opacity-40">Enter your mobile number for login to your account</p>
+        <form method="post">
+            {% csrf_token %}
+
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+												
+            <div class="form-group">
+                {% render_field form.mobile_number class="form-control h-auto form-control-solid py-4 px-8" %}
+            </div>
+            <input type="submit" value="Send OTP" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+<!--end::Login Sign in form-->
+{% endblock content %}

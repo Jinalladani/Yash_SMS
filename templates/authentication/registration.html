@@ -1,0 +1,34 @@
+{% extends 'authentication/base.html' %}
+{% load widget_tweaks %}
+{% block title %}
+Sign Up
+{% endblock title %}
+{% block content %}
+<!--begin::Login Sign up form-->
+<div class="login-signup-on">
+    <div class="mb-20">
+        <h3 class="opacity-40 font-weight-normal">Sign Up</h3>
+        <p class="opacity-40">Enter your details to create your account</p>
+    </div>
+    <form class="form text-center" method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        {% for field in registration_form %}
+        <div class="form-group row">
+            {{ field.errors }}
+            <label class="col-2 col-form-label">{{ field.label_tag }}</label>
+            <div class="col-10">
+                {{ field|add_class:"form-control h-auto form-control-solid py-4 px-8" }}
+            </div>
+            {% if field.help_text %}
+            <span class="ml-32 form-text text-muted text-left">{{ field.help_text|safe }}</span>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">Sign Up</button>
+            <a href="{% url 'login' %}" class="btn btn-light-primary font-weight-bold px-9 py-4 my-3 mx-2">Cancel</a>
+        </div>
+    </form>
+</div>
+<!--end::Login Sign up form-->
+{% endblock content %}

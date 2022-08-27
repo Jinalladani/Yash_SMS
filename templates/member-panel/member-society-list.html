@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Society List</title>
+    <meta name="description" content="Updates and statistics" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <!--end::Fonts-->
+    <!--begin::Page Vendors Styles(used by this page)-->
+    <link href="{% static 'plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <!--end::Page Vendors Styles-->
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="{% static 'plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'plugins/custom/prismjs/prismjs.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <!--end::Global Theme Styles-->
+    <!--begin::Layout Themes(used by all pages)-->
+    <link href="{% static 'css/themes/layout/header/base/light.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/themes/layout/header/menu/light.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/themes/layout/brand/dark.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/themes/layout/aside/dark.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '/plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'plugins/custom/uppy/uppy.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css"
+        rel="stylesheet" />
+    <!--end::Layout Themes-->
+    <link rel="shortcut icon" href="{% static 'media/logos/favicon.ico' %}" />
+</head>
+
+<body
+    class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable">
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container my-10">
+            <div class="row">
+                {% for member in members %}
+                <div class="col-md-4">
+                    <a href="{% url 'member-dashboard' member.user.pk %}" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
+                        <!--begin::Body-->
+                        <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
+                                        <path
+                                            d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                                            fill="#000000" opacity="0.3" />
+                                    </g>
+                                </svg>
+                                <!--end::Svg Icon-->
+                            </span>
+                            <div class="text-inverse-primary font-weight-bolder font-size-h5 mb-2 mt-5">
+                                {{member.user.society_name}}
+                            </div>
+                            <div class="font-weight-bold text-inverse-primary font-size-sm">Click to view all details
+                            </div>
+                        </div>
+                        <!--end::Body-->
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Sticky Toolbar-->
+    <script>var HOST_URL = "https://keenthemes.com/metronic/tools/preview";</script>
+    <!--begin::Global Config(global config for global JS scripts)-->
+    <script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#6993FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#F3F6F9", "dark": "#212121" }, "light": { "white": "#ffffff", "primary": "#E1E9FF", "secondary": "#ECF0F3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#212121", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121" } }, "font-family": "Poppins" };</script>
+    <!--end::Global Config-->
+    <!--begin::Global Theme Bundle(used by all pages)-->
+    <script src="{% static '/plugins/global/plugins.bundle.js' %}"></script>
+    <script src="{% static '/plugins/custom/prismjs/prismjs.bundle.js' %}"></script>
+    <script src="{% static '/js/scripts.bundle.js' %}"></script>
+    <!--end::Global Theme Bundle-->
+    <!--begin::Page Vendors(used by this page)-->
+    <script src="{% static '/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script>
+    <script src="{% static '/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+    <script src="{% static '/js/pages/crud/datatables/data-sources/ajax-server-side.js' %}"></script>
+    <script src="{% static 'plugins/custom/uppy/uppy.bundle.js' %}"></script>
+    <!--end::Page Vendors-->
+    <!--begin::Page Scripts(used by this page)-->
+    <script src="{% static '/js/pages/widgets.js' %}"></script>
+    <script src="{% static '/js/pages/crud/forms/widgets/bootstrap-daterangepicker.js' %}"></script>
+    <script src="{% static '/js/custom.js' %}"></script>
+    <!--end::Page Scripts-->
+</body>
+
+</html>

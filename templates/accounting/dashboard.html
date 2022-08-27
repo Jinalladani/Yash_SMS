@@ -1,0 +1,230 @@
+{% extends 'accounting/base.html' %}
+{% block title %}
+<title>Dashboard</title>
+{% endblock title %}
+{% block subheader %}
+<!--begin::Subheader-->
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div
+        class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <!--begin::Info-->
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <!--begin::Page Title-->
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Dashboard</h5>
+            <!--end::Page Title-->
+        </div>
+        <!--end::Info-->
+    </div>
+</div>
+<!--end::Subheader-->
+{% endblock subheader %}
+{% block content %}
+<div class="row gutter-b">
+    <div class="col-md-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="h3">
+                    Bank Balance
+                </div>
+                <div class="h1">
+                    {{bank_balance}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="h3">
+                    Cash Balance
+                </div>
+                <div class="h1">
+                    {{cash_balance}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="h3">
+                    Total Expense
+                </div>
+                <div class="h1">
+                    {{total_expense}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="h3">
+                    Total Income
+                </div>
+                <div class="h1">
+                    {{total_income}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gutter-b">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-title h3 text-center p-3 m-0">Income Details</div>
+            <div class="card-body">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th width="50%">Category</th>
+                            <th width="50%">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in income %}
+                        <tr>
+                            <td>{{i.category_header}}</td>
+                            <td>{{i.amount}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-title h3 text-center p-3 m-0">Expense Details</div>
+            <div class="card-body">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th width="50%">Category</th>
+                            <th width="50%">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in expense %}
+                        <tr>
+                            <td>{{i.category_header}}</td>
+                            <td>{{i.amount}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gutter-b">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-title">
+                <div class="h3 text-center p-3">Top 20 Expense Details</div>
+            </div>
+            <div class="card-body">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th width="25%">Member(from or to account</th>
+                            <th width="25%">Category Header</th>
+                            <th width="25%">Transaction Type</th>
+                            <th width="25%">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in top_20_expense %}
+                        <tr>
+                            <td>{{i.from_or_to_account}}</td>
+                            <td>{{i.category_header}}</td>
+                            <td>{{i.transaction_type}}</td>
+                            <td>{{i.amount}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gutter-b">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-title">
+                <div class="h3 text-center p-3">Top 20 Income Details</div>
+            </div>
+            <div class="card-body">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th width="25%">Member(from or to account</th>
+                            <th width="25%">Category Header</th>
+                            <th width="25%">Transaction Type</th>
+                            <th width="25%">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in top_20_income %}
+                        <tr>
+                            <td>{{i.from_or_to_account}}</td>
+                            <td>{{i.category_header}}</td>
+                            <td>{{i.transaction_type}}</td>
+                            <td>{{i.amount}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gutter-b">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-title h3 text-center p-3 m-0">Top Income Members Details</div>
+            <div class="card-body">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th width="50%">Member</th>
+                            <th width="50%">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in top_income_members %}
+                        <tr>
+                            <td>{{i.from_or_to_account}}</td>
+                            <td>{{i.amount}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-title h3 text-center p-3 m-0">Top Expense Members Details</div>
+            <div class="card-body">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th width="50%">Member</th>
+                            <th width="50%">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in top_expense_members %}
+                        <tr>
+                            <td>{{i.from_or_to_account}}</td>
+                            <td>{{i.amount}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,108 @@
+{% extends 'accounting/base.html' %}
+{% load static %}
+{% block title %}
+<title>Upload Excel</title>
+{% endblock title %}
+{% block subheader %}
+<!--begin::Subheader-->
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div
+        class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <!--begin::Info-->
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <!--begin::Page Title-->
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Upload Excel</h5>
+            <!--end::Page Title-->
+        </div>
+        <!--end::Info-->
+        <!-- <a href="#" class="btn btn-primary">Add Balance</a> -->
+    </div>
+</div>
+<!--end::Subheader-->
+{% endblock subheader %}
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <div class="row text-center mb-5">
+            <div class="col-md-7">
+                <div class="m-5">
+                    <h4>Upload Income Category</h4>
+                </div>
+                <div class="download-sample-button">
+                    <a href="{% static '/excel/income-category.xlsx' %}" class="btn btn-secondary" download>Download Sample</a>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div id="uppy-income-category">
+
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center mb-5">
+            <div class="col-md-7">
+                <div class="m-5">
+                    <h4>Upload Expense Category</h4>
+                </div>
+                <div class="download-sample-button">
+                    <a href="{% static '/excel/expense-category.xlsx' %}" class="btn btn-secondary" download>Download Sample</a>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div id="uppy-expense-category">
+
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center mb-5">
+            <div class="col-md-7">
+                <div class="m-5">
+                    <h4>Upload Members-Vendor Details</h4>
+                </div>
+                <div class="download-sample-button">
+                    <a href="{% static '/excel/member-vendor.xlsx' %}" class="btn btn-secondary" download>Download Sample</a>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div id="uppy-members-vendor-category">
+
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center mb-5">
+            <div class="col-md-7">
+                <div class="m-5">
+                    <h4>Upload Members Details</h4>
+                </div>
+                <div class="download-sample-button">
+                    <a href="{% static '/excel/society-members.xlsx' %}" class="btn btn-secondary" download>Download Sample</a>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div id="uppy-members-category">
+
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center mb-5">
+            <div class="col-md-7">
+                <div class="m-5">
+                    <h4>Upload Income Expense Ledger</h4>
+                </div>
+                <div class="download-sample-button">
+                    <a href="{% static '/excel/income-expense-ledger.xlsx' %}" class="btn btn-secondary" download>Download Sample</a>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div id="uppy-ledger-category">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
